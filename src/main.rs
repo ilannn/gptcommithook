@@ -1,4 +1,4 @@
-use actions::prepare_commit_msg::PrepareCommitMsgArgs;
+use actions::review_commit_changes::ReviewCommitChangesArgs;
 use log::LevelFilter;
 use simple_logger::SimpleLogger;
 #[macro_use]
@@ -30,7 +30,7 @@ enum Action {
     /// Install the git hook
     Install,
     /// Run on the prepare-commit-msg hook
-    PrepareCommitMsg(PrepareCommitMsgArgs),
+    ReviewCommitChanges(ReviewCommitChangesArgs),
 }
 
 #[tokio::main]
@@ -50,6 +50,6 @@ async fn main() -> Result<()> {
 
     match cli.action {
         Action::Install => actions::install::main().await,
-        Action::PrepareCommitMsg(cli) => actions::prepare_commit_msg::main(cli).await,
+        Action::ReviewCommitChanges(cli) => actions::review_commit_changes::main(cli).await,
     }
 }

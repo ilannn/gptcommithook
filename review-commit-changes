@@ -1,0 +1,5 @@
+#!/bin/sh
+
+### BEGIN GPTCOMMIT HOOK ###
+gptcommit review-commit-changes
+### END GPTCOMMIT HOOK ###

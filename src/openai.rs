@@ -8,7 +8,8 @@ use serde_json::{json, Value};
 pub(crate) async fn completions(prompt: &str) -> Result<String> {
     let api_key = get_openai_api_key()?;
     let client = Client::new();
-
+    
+    // TODO: make this configurable
     let json_data = json!({
         "model": "text-davinci-003",
         "prompt": prompt,

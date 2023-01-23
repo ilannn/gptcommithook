@@ -24,14 +24,14 @@ pub(crate) async fn main() -> Result<()> {
         "Found git hooks path for current git repo {}",
         hooks_path.display()
     );
-    let prepare_commit_msg_path = hooks_path.join("prepare-commit-msg");
-    info!("Overwriting file at {}", prepare_commit_msg_path.display());
+    let review_commit_changes_path = hooks_path.join("review-commit-changes");
+    info!("Overwriting file at {}", review_commit_changes_path.display());
     fs::write(
-        &prepare_commit_msg_path,
-        include_str!("../../prepare-commit-msg"),
+        &review_commit_changes_path,
+        include_str!("../../review-commit-changes"),
     )?;
     #[cfg(unix)]
-    fs::set_permissions(&prepare_commit_msg_path, Permissions::from_mode(0o755))?;
+    fs::set_permissions(&review_commit_changes_path, Permissions::from_mode(0o755))?;
 
     println!(
         "{}\n{}",

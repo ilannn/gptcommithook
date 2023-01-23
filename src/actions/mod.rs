@@ -1,2 +1,2 @@
 pub(crate) mod install;
-pub(crate) mod prepare_commit_msg;
+pub(crate) mod review_commit_changes;
